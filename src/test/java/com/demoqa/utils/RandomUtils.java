@@ -11,9 +11,6 @@ public class RandomUtils{
     static String[] hobbies = {"Sports", "Reading", "Music"};
     static String[] subjects = {"Math", "Biology", "English", "Chemistry", "Accounting", "Arts"};
 
-    public static void main(String[] args) {
-        System.out.println(setRandomEmailAddress());
-    }
 
     public static String generateRandomString(int len) {
         String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
