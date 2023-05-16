@@ -1,14 +1,6 @@
 package com.demoqa.tests;
 
-import static com.codeborne.selenide.Condition.text;
-import com.codeborne.selenide.Configuration;
-import com.demoqa.pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationWithPageObject extends TestBaseTest  {
     @Test
@@ -22,7 +14,7 @@ public class RegistrationWithPageObject extends TestBaseTest  {
                         .setBirthDate("06", "December", "1989")
                         .setSubjectsInput("Math")
                         .setHobbiesRadiobutton("Sports")
-                        .upploadPicture("image.jpg")
+                        .uploadPicture("image.jpg")
                         .setAddress("г.Казань")
                         .setState("NCR")
                         .setCity("Delhi")

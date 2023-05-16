@@ -3,12 +3,10 @@ package com.demoqa.pages;
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarComponent;
 import com.demoqa.pages.components.ResultsModal;
-
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static java.lang.String.format;
+
 
 public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -70,7 +68,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage upploadPicture(String value) {
+    public RegistrationPage uploadPicture(String value) {
         picture.uploadFromClasspath(value);
         return this;
     }
