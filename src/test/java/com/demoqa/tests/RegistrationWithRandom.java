@@ -1,5 +1,7 @@
 package com.demoqa.tests;
 
+import com.demoqa.pages.RegistrationPage;
+import static com.demoqa.utils.FieldsInRegistrationModal.*;
 import com.demoqa.utils.RandomUtils;
 import org.junit.jupiter.api.Test;
 
@@ -8,39 +10,47 @@ public class RegistrationWithRandom extends TestBaseTest {
     @Test
     void firstLessonWithPageObject() {
         String firstName = RandomUtils.setRandomFirstName();
-        String lasttName = RandomUtils.setRandomLastName();
+        String lastName = RandomUtils.setRandomLastName();
         String address = RandomUtils.setRandomAddress();
         String email = RandomUtils.setRandomEmailAddress();
         String phone = RandomUtils.setRandomPhone();
         String gender = RandomUtils.setRandomGender();
         String hobbies = RandomUtils.setRandomHobbies();
         String subjects = RandomUtils.setRandomSubjects();
-
+        int birthYear = RandomUtils.generateRandomInt(1900, 2100);
+        int birthMonthRandom = RandomUtils.generateRandomInt(0, 11);
+        String monthRandomName = RandomUtils.getMonthName(birthMonthRandom);
+        String yearNumber = Integer.toString(birthYear);
+        int birthDay = RandomUtils.generateRandomInt(1, RegistrationPage.checkDaysInMonth(birthYear, birthMonthRandom));
+        String dayNumber = Integer.toString(birthDay);
+        String state = RandomUtils.setRandomState();
+        String city = RandomUtils.generateRandomCity(state);
+        String file = RandomUtils.fileName;
 
         registrationPage.openPage()
                 .setFirstName(firstName)
-                .setLastName(lasttName)
+                .setLastName(lastName)
                 .setEmail(email)
                 .clickGender(gender)
                 .setPhone(phone)
-                .setBirthDate("06", "December", "1989")
+                .setBirthDate(dayNumber, monthRandomName, yearNumber)
                 .setSubjectsInput(subjects)
                 .setHobbiesRadiobutton(hobbies)
-                .uploadPicture("image.jpg")
+                .uploadPicture(file)
                 .setAddress(address)
-                .setState("NCR")
-                .setCity("Delhi")
+                .setState(state)
+                .setCity(city)
                 .clickSubmitButton()
                 .verifyRegistrationModal()
-                .verifyResult("Student Name", firstName + " " + lasttName)
-                .verifyResult("Student Email", email)
-                .verifyResult("Gender", gender)
-                .verifyResult("Mobile", phone)
-                .verifyResult("Date of Birth", "06 December,1989")
-                .verifyResult("Subjects", subjects)
-                .verifyResult("Hobbies", hobbies)
-                .verifyResult("Picture", "image.jpg")
-                .verifyResult("Address", address)
-                .verifyResult("State and City", "NCR Delhi");
+                .verifyResult(studentNameField, firstName + " " + lastName)
+                .verifyResult(studentEmailField, email)
+                .verifyResult(genderField, gender)
+                .verifyResult(mobileField, phone)
+                .verifyResult(dateBirthField, dayNumber + " "  + monthRandomName +"," +yearNumber)
+                .verifyResult(subjectsField, subjects)
+                .verifyResult(hobbiesField, hobbies)
+                .verifyResult(pictureField, file)
+                .verifyResult(addressField, address)
+                .verifyResult(stateCityField, state + " " + city);
     }
 }

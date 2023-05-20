@@ -3,9 +3,14 @@ package com.demoqa.pages;
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarComponent;
 import com.demoqa.pages.components.ResultsModal;
+import com.demoqa.utils.RandomUtils;
+import org.junit.jupiter.api.parallel.Resources;
+
+import java.time.YearMonth;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+
 
 
 public class RegistrationPage {
@@ -111,4 +116,8 @@ public class RegistrationPage {
         return this;
     }
 
+    public static int checkDaysInMonth(int year, int month) {
+        YearMonth yearMonthObject = YearMonth.of(year, month);
+        return yearMonthObject.lengthOfMonth();
+    }
 }
