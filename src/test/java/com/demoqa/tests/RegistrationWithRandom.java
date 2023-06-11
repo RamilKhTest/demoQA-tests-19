@@ -20,7 +20,7 @@ public class RegistrationWithRandom extends TestBaseTest {
         String hobbies = RandomUtils.setRandomHobbies();
         String subjects = RandomUtils.setRandomSubjects();
         int birthYear = RandomUtils.generateRandomInt(1900, 2100);
-        int birthMonthRandom = RandomUtils.generateRandomInt(0, 11);
+        int birthMonthRandom = RandomUtils.generateRandomInt(1, 12);
         String monthRandomName = RandomUtils.getMonthName(birthMonthRandom);
         String yearNumber = Integer.toString(birthYear);
         int birthDay = RandomUtils.generateRandomInt(1, RegistrationPage.checkDaysInMonth(birthYear, birthMonthRandom));
