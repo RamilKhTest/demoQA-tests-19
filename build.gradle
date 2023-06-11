@@ -52,5 +52,10 @@ task random_test (type: Test){
     useJUnitPlatform{
         includeTags("random")
     }
+
+task simple_test (type: Test){
+    useJUnitPlatform{
+        includeTags("simple")
+    }
 }
 
