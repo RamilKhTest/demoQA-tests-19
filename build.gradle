@@ -48,14 +48,14 @@ test {
     useJUnitPlatform()
 }
 
-task random_test (type: Test){
-    useJUnitPlatform{
+task random_test (type: Test) {
+    useJUnitPlatform {
         includeTags("random")
     }
 
-task simple_test (type: Test){
-    useJUnitPlatform{
-        includeTags("simple")
+    task simple_test(type: Test) {
+        useJUnitPlatform {
+            includeTags("simple")
+        }
     }
 }
-
