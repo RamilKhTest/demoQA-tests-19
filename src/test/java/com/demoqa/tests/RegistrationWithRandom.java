@@ -3,8 +3,10 @@ package com.demoqa.tests;
 import com.demoqa.pages.RegistrationPage;
 import static com.demoqa.utils.FieldsInRegistrationModal.*;
 import com.demoqa.utils.RandomUtils;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@Tag("random")
 public class RegistrationWithRandom extends TestBaseTest {
 
     @Test
