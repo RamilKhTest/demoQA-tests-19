@@ -5,10 +5,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-
-public class RegistrationWithRandomRemote extends TestBaseRemoteTest {
+import static com.codeborne.selenide.Selenide.*;
+public class RegistrationRemoteTest extends TestBaseRemoteTest {
 
     @Test
     @Tag("remote")
@@ -16,6 +14,8 @@ public class RegistrationWithRandomRemote extends TestBaseRemoteTest {
         Configuration.holdBrowserOpen = true;
         //Открываем страницу
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         //Имя
         $("#firstName").setValue("Рамиль");
         //Фамилия
